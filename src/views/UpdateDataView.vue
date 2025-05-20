@@ -1,15 +1,15 @@
 <template>
   <div class="kyc">
-    <h1>KYC Verification</h1>
+    <h1>Neue Transaktion</h1>
     <p v-if="!checked">Checking KYC...</p>
     <p v-else>✓ KYC verified</p>
     <form @submit.prevent="saveData" v-if="checked">
       <div>
-        <label>Z&auml;hlpunktnummer</label>
+        <label>Z&auml;hlerpunktnummer</label>
         <input v-model="meterNumber" required />
       </div>
       <div>
-        <label>Startzeitpunkt</label>
+        <label>Startdatum</label>
         <input type="datetime-local" v-model="startTime" required />
       </div>
       <div>
@@ -17,10 +17,10 @@
         <input type="datetime-local" v-model="endTime" required />
       </div>
       <div>
-        <label>Gew&uuml;nschter Preis</label>
+        <label>Gew&uuml;nschter Preis (in Cent)</label>
         <input type="number" v-model.number="price" required />
       </div>
-      <button type="submit">Continue</button>
+      <button type="submit">Speichern</button>
     </form>
   </div>
 </template>
@@ -44,6 +44,20 @@ onMounted(() => {
 })
 
 function saveData() {
+  const now = new Date()
+  const start = new Date(startTime.value)
+  const end = new Date(endTime.value)
+
+  if (start <= now) {
+    alert('Startdatum muss in der Zukunft liegen')
+    return
+  }
+
+  if (end <= start) {
+    alert('Endzeitpunkt muss nach Startdatum liegen')
+    return
+  }
+
   const req = {
     meterNumber: meterNumber.value,
     startTime: startTime.value,
