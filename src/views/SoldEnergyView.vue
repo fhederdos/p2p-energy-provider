@@ -1,19 +1,19 @@
 <template>
-  <div class="sold">
-    <h1>Energy Sold</h1>
-    <table>
+  <div class="max-w-xl mx-auto mt-8">
+    <h1 class="text-2xl font-bold mb-4">Energy Sold</h1>
+    <table class="min-w-full bg-white shadow rounded">
       <thead>
-        <tr>
-          <th>Buyer</th>
-          <th>Volume (kWh)</th>
-          <th>Price (&euro;)</th>
+        <tr class="bg-gray-100">
+          <th class="px-4 py-2 text-left">Buyer</th>
+          <th class="px-4 py-2 text-left">Volume (kWh)</th>
+          <th class="px-4 py-2 text-left">Price (&euro;)</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(sale, i) in sales" :key="i">
-          <td>{{ sale.buyer }}</td>
-          <td>{{ sale.volume }}</td>
-          <td>{{ sale.price }}</td>
+        <tr v-for="(sale, i) in sales" :key="i" class="border-t">
+          <td class="px-4 py-2">{{ sale.buyer }}</td>
+          <td class="px-4 py-2">{{ sale.volume }}</td>
+          <td class="px-4 py-2">{{ sale.price }}</td>
         </tr>
       </tbody>
     </table>
@@ -35,18 +35,3 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-.sold {
-  max-width: 500px;
-  margin: 2rem auto;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: left;
-}
-</style>

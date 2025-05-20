@@ -1,26 +1,26 @@
 <template>
-  <div class="kyc">
-    <h1>KYC Verification</h1>
-    <p v-if="!checked">Checking KYC...</p>
-    <p v-else>✓ KYC verified</p>
-    <form @submit.prevent="saveData" v-if="checked">
+  <div class="max-w-md mx-auto mt-8 bg-white shadow rounded p-6">
+    <h1 class="text-2xl font-bold mb-4">KYC Verification</h1>
+    <p v-if="!checked" class="mb-4">Checking KYC...</p>
+    <p v-else class="text-green-700 mb-4">✓ KYC verified</p>
+    <form @submit.prevent="saveData" v-if="checked" class="space-y-4">
       <div>
-        <label>Z&auml;hlpunktnummer</label>
-        <input v-model="meterNumber" required />
+        <label class="block mb-1">Z&auml;hlpunktnummer</label>
+        <input v-model="meterNumber" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Startzeitpunkt</label>
-        <input type="datetime-local" v-model="startTime" required />
+        <label class="block mb-1">Startzeitpunkt</label>
+        <input type="datetime-local" v-model="startTime" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Endzeitpunkt</label>
-        <input type="datetime-local" v-model="endTime" required />
+        <label class="block mb-1">Endzeitpunkt</label>
+        <input type="datetime-local" v-model="endTime" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Gew&uuml;nschter Preis</label>
-        <input type="number" v-model.number="price" required />
+        <label class="block mb-1">Gew&uuml;nschter Preis</label>
+        <input type="number" v-model.number="price" required class="w-full border rounded p-2" />
       </div>
-      <button type="submit">Continue</button>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Continue</button>
     </form>
   </div>
 </template>
@@ -55,12 +55,3 @@ function saveData() {
 }
 </script>
 
-<style scoped>
-.kyc {
-  max-width: 400px;
-  margin: 2rem auto;
-}
-.kyc div {
-  margin-bottom: 0.5rem;
-}
-</style>

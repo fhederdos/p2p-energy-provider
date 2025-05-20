@@ -1,24 +1,24 @@
 <template>
-  <div class="register">
-    <h1>Register</h1>
-    <form @submit.prevent="register">
+  <div class="max-w-md mx-auto mt-8 bg-white shadow rounded p-6">
+    <h1 class="text-2xl font-bold mb-4">Register</h1>
+    <form @submit.prevent="register" class="space-y-4">
       <div>
-        <label>First Name</label>
-        <input v-model="firstName" required />
+        <label class="block mb-1">First Name</label>
+        <input v-model="firstName" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Last Name</label>
-        <input v-model="lastName" required />
+        <label class="block mb-1">Last Name</label>
+        <input v-model="lastName" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Username</label>
-        <input v-model="username" required />
+        <label class="block mb-1">Username</label>
+        <input v-model="username" required class="w-full border rounded p-2" />
       </div>
       <div>
-        <label>Email</label>
-        <input v-model="email" type="email" required />
+        <label class="block mb-1">Email</label>
+        <input v-model="email" type="email" required class="w-full border rounded p-2" />
       </div>
-      <button type="submit">Register / Login</button>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Register / Login</button>
     </form>
   </div>
 </template>
@@ -45,12 +45,3 @@ function register() {
 }
 </script>
 
-<style scoped>
-.register {
-  max-width: 400px;
-  margin: 2rem auto;
-}
-.register div {
-  margin-bottom: 0.5rem;
-}
-</style>
