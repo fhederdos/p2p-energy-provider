@@ -1,8 +1,8 @@
 <template>
-  <div class="prediction">
-    <h1>Predicted Energy Volume</h1>
-    <p>For the selected timeframe we predict an energy volume of <strong>{{ volume }} kWh</strong>.</p>
-    <button @click="goNext">Show Sold Energy</button>
+  <div class="text-center mt-8">
+    <h1 class="text-2xl font-bold mb-4">Predicted Energy Volume</h1>
+    <p class="mb-6">For the selected timeframe we predict an energy volume of <strong>{{ volume }} kWh</strong>.</p>
+    <button @click="goNext" class="bg-blue-600 text-white py-2 px-4 rounded">Show Sold Energy</button>
   </div>
 </template>
 
@@ -34,9 +34,3 @@ function goNext() {
 }
 </script>
 
-<style scoped>
-.prediction {
-  text-align: center;
-  margin-top: 2rem;
-}
-</style>

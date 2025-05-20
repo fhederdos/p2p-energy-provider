@@ -2,6 +2,8 @@
 
 This repository contains a simple demo frontend for a peer to peer energy exchange platform. It uses **Vite** and **Vue 3** and stores all data in the browser's local storage. There is no backend or authentication logic – the focus is to showcase the basic workflow.
 
+The styling is done with **Tailwind CSS** via a CDN include.
+
 ## Views
 
 1. **Register** – collect user details (without a password). The user is stored in local storage and is automatically logged in.
