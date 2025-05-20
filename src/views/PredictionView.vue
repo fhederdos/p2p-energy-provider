@@ -1,7 +1,7 @@
 <template>
   <div class="prediction">
     <h1>Predicted Energy Volume</h1>
-    <p>For the selected timeframe we predict an energy volume of <strong>{{ volume }} kWh</strong>.</p>
+    <p>For the {{ period }} timeframe we predict an energy volume of <strong>{{ volume }} kWh</strong>.</p>
     <button @click="goNext">Show Sold Energy</button>
   </div>
 </template>
@@ -12,11 +12,23 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const volume = ref(0)
+const period = ref('')
 
 function predict(start) {
   const hour = new Date(start).getHours()
-  if (hour >= 10 && hour < 16) return 8
-  if ((hour >= 6 && hour < 10) || (hour >= 16 && hour < 22)) return 3
+  if (hour >= 6 && hour < 10) {
+    period.value = 'morning'
+    return 3
+  }
+  if (hour >= 10 && hour < 16) {
+    period.value = 'daytime'
+    return 8
+  }
+  if (hour >= 16 && hour < 22) {
+    period.value = 'evening'
+    return 4
+  }
+  period.value = 'night'
   return 0
 }
 
@@ -25,6 +37,7 @@ onMounted(() => {
   if (req.startTime) {
     volume.value = predict(req.startTime)
     req.predictedVolume = volume.value
+    req.predictedPeriod = period.value
     localStorage.setItem('energyRequest', JSON.stringify(req))
   }
 })
