@@ -5,10 +5,13 @@ This repository contains a simple demo frontend for a peer to peer energy exchan
 ## Views
 
 1. **Register** – collect user details (without a password). The user is stored in local storage and is automatically logged in.
-2. **KYC / Offer** – a mock KYC check is performed and the user can enter:
-   - Z&auml;hlpunktnummer
+2. **Update Data** – after a brief KYC check the user can create a new
+   transaction by entering:
+   - Z&auml;hlerpunktnummer
    - desired timeframe
-   - desired price
+   - desired price (in Cent)
+   The start date must be in the future and the end time must come after the
+   chosen start date.
 3. **Prediction** – based on the chosen start time a very naive energy volume prediction is shown (8&nbsp;kWh/h at midday, 3&nbsp;kWh/h in the morning/evening, 0&nbsp;kWh at night).
 4. **Energy Sold** – displays mock data of how much energy was sold and to whom.
 

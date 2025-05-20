@@ -41,7 +41,7 @@ function register() {
     email: email.value
   }
   localStorage.setItem('user', JSON.stringify(user))
-  router.push('/kyc')
+  router.push('/update')
 }
 </script>
 
