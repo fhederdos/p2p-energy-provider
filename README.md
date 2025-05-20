@@ -9,7 +9,11 @@ This repository contains a simple demo frontend for a peer to peer energy exchan
    - Z&auml;hlpunktnummer
    - desired timeframe
    - desired price
-3. **Prediction** – based on the chosen start time a very naive energy volume prediction is shown (8&nbsp;kWh/h at midday, 3&nbsp;kWh/h in the morning/evening, 0&nbsp;kWh at night).
+3. **Prediction** – based on the chosen start time a very naive energy volume prediction is shown.
+   - morning: 3&nbsp;kWh
+   - daytime: 8&nbsp;kWh
+   - evening: 4&nbsp;kWh
+   - night: 0&nbsp;kWh
 4. **Energy Sold** – displays mock data of how much energy was sold and to whom.
 
 ## Development
